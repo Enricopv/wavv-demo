@@ -2,8 +2,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import twilio from "twilio";
 
-const accountSid = "AC08d97a2bdb942feee45b409adecc567a";
-const authToken = "3eaf43a0800b6bd59e4d1e05c1864840";
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 twilio(accountSid, authToken);
 
