@@ -17,7 +17,7 @@ export const FileShareButton = ({listen = false}: { listen?: false | number }) =
     },
     {
       // Refetch the data every second
-      refetchInterval: false,
+      refetchInterval: listen,
     }
   );
 
