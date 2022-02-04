@@ -14,7 +14,7 @@ export const Popover = PopoverPrimitive.Root;
 export const PopoverTrigger = PopoverPrimitive.Trigger;
 export const PopoverContent = PopoverPrimitive.Content;
 
-export const LineItem = () => (
+export const LineItem = (props: { listen?: false | number }) => (
   <div
     style={{
       backgroundColor: "#F2F3F4",
@@ -65,7 +65,7 @@ export const LineItem = () => (
           minWidth: 150,
         }}
       >
-        <FileShareButton />
+        <FileShareButton {...props} />
         <FontAwesomeIcon
           icon={faCommentAlt}
           style={{
