@@ -14,7 +14,7 @@ export const FileShareButton = () => {
     },
     {
       // Refetch the data every second
-      refetchInterval: false,
+      refetchInterval: 2000,
     }
   );
 
@@ -103,3 +103,36 @@ export const FileShareButton = () => {
     </Dialog.Root>
   );
 };
+
+
+/**
+ *
+ * {
+    "data": [
+        {
+            "id": 102,
+            "name": "dog",
+            "url": "https://api.twilio.com/2010-04-01/Accounts/AC08d97a2bdb942feee45b409adecc567a/Messages/MMe80345fff48bad8fb57771d2f69f04ce/Media/ME30bf92b5357f5809eec6ae24eab4d5a2",
+            "userId": 1
+        },
+        {
+            "id": 101,
+            "name": "test",
+            "url": "https://api.twilio.com/2010-04-01/Accounts/AC08d97a2bdb942feee45b409adecc567a/Messages/MM4f1e4a983e7dfe76c0d6df4c918e3613/Media/MEd1362f0a148b3445ea7c5884d8725843",
+            "userId": 1
+        },
+        {
+            "id": 2,
+            "name": "",
+            "url": "https://api.twilio.com/2010-04-01/Accounts/AC08d97a2bdb942feee45b409adecc567a/Messages/MM6a0413a8f1038d91e2b641f8de126e2e/Media/ME0d0eff6d7aeb8c1ee471e887376321cb",
+            "userId": 1
+        },
+        {
+            "id": 3,
+            "name": "",
+            "url": "https://api.twilio.com/2010-04-01/Accounts/AC08d97a2bdb942feee45b409adecc567a/Messages/MM48473c5229a4f4c5d174343b5062f40c/Media/ME91fbd702afa8899fe9d33412deef0027",
+            "userId": 1
+        }
+    ]
+}
+ */
