@@ -19,10 +19,8 @@ export default async function handler(
 
     console.log(message?.sid);
 
-    res.writeHead(200, { "Content-Type": "text/xml" });
     res.json({ message: "done" });
   } catch (e) {
-    res.writeHead(400, { "Content-Type": "text/xml" });
     res.json({ error: e });
   }
 }
