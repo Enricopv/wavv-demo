@@ -63,29 +63,31 @@ export const FileShareButton = () => {
             }}
           >
             <Dialog.Title>Fileshare</Dialog.Title>
-            {!data && (
-              <div
-                style={{
-                  minHeight: 300,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
+            <div
+              style={{
+                minHeight: 300,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              {!data?.data || !data?.data[0] ? (
                 <div>There is nothing here.</div>
-              </div>
-            )}
-            {data?.data.map(
-              (file: { url: string; name: string }, index: number) => (
-                <Image
-                  key={index}
-                  src={file.url}
-                  alt={file.name}
-                  width={50}
-                  height={100}
-                />
-              )
-            )}
+              ) : (
+                data?.data.map(
+                  (file: { url: string; name: string }, index: number) => (
+                    <Image
+                      key={index}
+                      src={file.url}
+                      alt={file.name}
+                      width="100%"
+                      height="100%"
+                    />
+                  )
+                )
+              )}
+            </div>
+
             <div
               style={{
                 backgroundColor: "#0074F4",
@@ -103,7 +105,6 @@ export const FileShareButton = () => {
     </Dialog.Root>
   );
 };
-
 
 /**
  *
