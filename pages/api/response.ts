@@ -1,7 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import twilio from "twilio";
+import { PrismaClient } from "@prisma/client";
 
+const prisma = new PrismaClient();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 
@@ -35,13 +37,21 @@ interface MessageContent {
   ApiVersion: string;
 }
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
   const body: MessageContent = req.body as MessageContent;
 
-  console.log("body", body);
+  const file = await prisma.file.create({
+    data: {
+      name: body.Body || "",
+      url: body.MediaUrl0,
+      userId: 1,
+    },
+  });
+
+  console.log("body", file, body);
 
   res.writeHead(200, { "Content-Type": "text/xml" });
   res.end("end");

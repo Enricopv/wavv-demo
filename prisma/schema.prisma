@@ -11,13 +11,13 @@ datasource db {
 }
 
 model User {
-  id    Int     @unique
+  id    Int     @unique @default(autoincrement())
   phone String? @unique
   files File[]
 }
 
 model File {
-  id     Int     @unique
+  id     Int     @unique @default(autoincrement())
   name   String?
   url    String?
   User   User?   @relation(fields: [userId], references: [id])

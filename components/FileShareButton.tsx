@@ -2,6 +2,7 @@ import { faFolder } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as Dialog from "@radix-ui/react-dialog";
 import axios from "axios";
+import Image from "next/image";
 import { useQuery } from "react-query";
 
 export const FileShareButton = () => {
@@ -13,7 +14,7 @@ export const FileShareButton = () => {
     },
     {
       // Refetch the data every second
-      refetchInterval: 1000,
+      refetchInterval: false,
     }
   );
 
@@ -62,17 +63,29 @@ export const FileShareButton = () => {
             }}
           >
             <Dialog.Title>Fileshare</Dialog.Title>
-
-            <div
-              style={{
-                minHeight: 300,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div>There is nothing here.</div>
-            </div>
+            {!data && (
+              <div
+                style={{
+                  minHeight: 300,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div>There is nothing here.</div>
+              </div>
+            )}
+            {data?.data.map(
+              (file: { url: string; name: string }, index: number) => (
+                <Image
+                  key={index}
+                  src={file.url}
+                  alt={file.name}
+                  width={50}
+                  height={100}
+                />
+              )
+            )}
             <div
               style={{
                 backgroundColor: "#0074F4",
