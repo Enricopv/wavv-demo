@@ -8,7 +8,11 @@ import { useQuery } from "react-query";
 import { Button } from "./Button";
 import { DialogContainer } from "./DialogContainer";
 
-export const FileShareButton = ({listen = false}: { listen?: false | number }) => {
+export const FileShareButton = ({
+  listen = false,
+}: {
+  listen?: false | number;
+}) => {
   const { data } = useQuery(
     "images",
     async () => {
@@ -20,6 +24,10 @@ export const FileShareButton = ({listen = false}: { listen?: false | number }) =
       refetchInterval: listen,
     }
   );
+
+  const onRequest = React.useCallback(() => {
+    axios.post("/api/send");
+  }, []);
 
   return (
     <Dialog.Root>
@@ -62,7 +70,7 @@ export const FileShareButton = ({listen = false}: { listen?: false | number }) =
               )}
           </div>
 
-          <Button>Request Files</Button>
+          <Button onClick={onRequest}>Request Files</Button>
         </DialogContainer>
       </Dialog.Portal>
     </Dialog.Root>

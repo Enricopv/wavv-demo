@@ -10,7 +10,7 @@ export default async function handler(
 ) {
   const client = twilio(accountSid, authToken);
   const message = await client.messages.create({
-    body: "env files",
+    body: "Please send us pictures!",
 
     from: "+19032963527",
     to: "+18052312053",
