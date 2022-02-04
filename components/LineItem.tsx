@@ -1,11 +1,9 @@
 import {
   faCommentAlt,
-  faFolder,
   faPhone,
   faVoicemail,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import * as Dialog from "@radix-ui/react-dialog";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { Avatar } from "./Avatar";
 import { BlankLine } from "./BlankLine";
