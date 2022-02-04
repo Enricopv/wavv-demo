@@ -1,7 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import twilio from "twilio";
-import type { Twilio } from "twilio";
 
 const accountSid = "AC08d97a2bdb942feee45b409adecc567a";
 const authToken = "3eaf43a0800b6bd59e4d1e05c1864840";
