@@ -5,13 +5,8 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 const client = twilio(accountSid, authToken);
-type Data = {
-  name: string;
-};
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   client.messages
     .create({
       body: "bananan",
@@ -21,5 +16,5 @@ export default function handler(
     .then((message: { sid: string }) => console.log(message.sid));
 
   res.writeHead(200, { "Content-Type": "text/xml" });
-  res.end("end");
+  res.json({ message: "done" });
 }
